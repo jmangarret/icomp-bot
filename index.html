@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es" class="bg-[#050505] text-[#F3F4F6] font-sans antialiased scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iCompBot // Sistemas de Automatización Conversacional & RAG</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#39FF14',
+                            dark: '#050505',
+                            card: '#0C0C0E',
+                            surface: '#121214',
+                            border: '#1E1E24',
+                            panel: '#1C1C1F'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter para lectura y JetBrains Mono para código -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos personalizados para Neo-Brutalismo */
+        ::selection {
+            background-color: #39FF14;
+            color: #000000;
+        }
+
+        /* Scrollbar personalizada minimalista */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0C0C0E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E1E24;
+            border: 1px solid #39FF14;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #39FF14;
+        }
+    </style>
+</head>
+
+<body class="bg-[#050505] text-[#F3F4F6] min-h-screen selection:bg-[#39FF14] selection:text-black">
+
+    <!-- Header Navigation -->
+    <header class="w-full border-b border-[#1E1E24] bg-[#050505]/90 backdrop-blur sticky top-0 z-50 px-6 lg:px-24 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3 font-mono font-bold text-sm tracking-wider text-white">
+                <span class="inline-block w-2.5 h-2.5 bg-[#39FF14] animate-pulse"></span>
+                <span class="brand-name-placeholder text-[#39FF14]"></span>
+                <span class="text-xs text-gray-500 hidden sm:inline">[V2.4_COL]</span>
+            </div>
+            <button onclick="irAFormulario()" class="font-mono text-xs uppercase px-4 py-2 border border-[#39FF14] text-[#39FF14] hover:bg-[#39FF14] hover:text-black transition-all">
+                [ Brief / Cotizar ]
+            </button>
+        </div>
+    </header>
+
+    <!-- ======================================================== -->
+    <!-- 1. HERO SECTION (Neo-Brutalismo Avanzado)               -->
+    <!-- ======================================================== -->
+    <section class="relative min-h-[calc(100vh-65px)] flex flex-col justify-center items-center px-6 lg:px-24 py-16 border-b border-[#1E1E24] overflow-hidden">
+        <!-- Fondo de Rejilla Tecnológica (CSS Nativo) -->
+        <div class="absolute inset-0 z-0 bg-[linear-gradient(to_right,#141416_1px,transparent_1px),linear-gradient(to_bottom,#141416_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-70">
+        </div>
+
+        <div class="relative z-10 w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+            <!-- Columna Izquierda: Mensaje de Impacto -->
+            <div class="lg:col-span-7 flex flex-col space-y-6 text-left">
+                <div class="inline-flex items-center space-x-2 border border-[#1E1E24] bg-[#121214] px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider text-[#39FF14] w-fit">
+                    <span class="w-2 h-2 rounded-full bg-[#39FF14] animate-ping"></span>
+                    <span>⚡ System Status: Operational</span>
+                    <span class="text-gray-500">//</span>
+                    <span class="brand-name-placeholder"></span>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+                    Tu negocio no duerme. <br>
+                    Tu competencia tampoco. <br>
+                    <span class="text-[#39FF14] block mt-2">Tus ventas tampoco deberían.</span>
+                </h1>
+
+                <p class="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-sans">
+                    Desarrollo sistemas de automatización conversacional a medida. Con <span class="brand-name-placeholder text-white font-bold"></span> no configuro respuestas automáticas genéricas; conecto tus bases de datos, inventarios y CRMs para responder dudas complejas en 1.2 segundos.
+                </p>
+
+                <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                    <!-- Botón de Acción Disruptivo -->
+                    <button onclick="irAWhatsApp()" class="w-full sm:w-auto font-mono font-bold bg-[#39FF14] text-black border border-black hover:bg-black hover:text-[#39FF14] hover:border-[#39FF14] px-8 py-4 transition-all duration-200 shadow-[4px_4px_0px_0px_#121214] hover:shadow-none transform hover:translate-x-1 hover:translate-y-1">
+                        [ PROBAR DEMO EN VIVO ⚡ ]
+                    </button>
+                    <button onclick="irAFormulario()" class="w-full sm:w-auto font-mono font-bold bg-[#121214] text-white border border-[#1E1E24] hover:border-white px-6 py-4 transition-all duration-200">
+                        VER ARQUITECTURA →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Terminal + Simulación de Conversación Real (Colombia) -->
+            <div class="lg:col-span-5 w-full bg-[#121214] border border-[#1E1E24] shadow-[8px_8px_0px_0px_#0C0C0E] relative overflow-hidden">
+                <!-- Barra superior de la ventana estilo OS de desarrollo -->
+                <div class="bg-[#1C1C1F] border-b border-[#1E1E24] px-4 py-3 flex items-center justify-between">
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 bg-[#FF5F56]"></div>
+                        <div class="w-3 h-3 bg-[#FFBD2E]"></div>
+                        <div class="w-3 h-3 bg-[#27C93F]"></div>
+                    </div>
+                    <span class="text-xs font-mono text-gray-400">architecture_rag_handler.py</span>
+                </div>
+
+                <!-- Cuerpo de la ventana simulada -->
+                <div class="p-6 font-mono text-xs sm:text-sm space-y-6 overflow-y-auto max-h-[420px]">
+                    <!-- Código Python/Node difuminado de fondo: Oculto en móviles para garantizar lectura veloz (Optimizado para Móviles) -->
+                    <div class="hidden sm:block text-gray-600 opacity-40 select-none pointer-events-none text-[11px] leading-tight font-mono bg-[#0C0C0E] p-3 border border-[#1E1E24]">
+                        def query_vector_db(user_input, enterprise_id):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;embeddings = openai.Embedding.create(user_input)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;context = pinecone.index.fetch(embeddings)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return load_llm_strict_prompt(context, strict_mode=True)
+                    </div>
+
+                    <!-- Flujo del chat interactivo visual (Mercado Colombiano) -->
+                    <div class="space-y-4 pt-2 border-t border-[#1E1E24]">
+                        <!-- Mensaje Cliente -->
+                        <div class="flex flex-col items-end space-y-1">
+                            <span class="text-[10px] text-gray-500 font-mono">CLIENTE (WEB / WHATSAPP)</span>
+                            <div class="bg-[#26262B] text-white px-4 py-2.5 max-w-[85%] border-r-2 border-gray-400 text-xs sm:text-sm">
+                                ¿Tienen disponible el apartamento en piso 4 en El Poblado y aceptan crédito preaprobado Bancolombia?
+                            </div>
+                        </div>
+
+                        <!-- Respuesta del Bot -->
+                        <div class="flex flex-col items-start space-y-1">
+                            <span class="text-[10px] text-[#39FF14] font-mono">ICOMPBOT // ONLINE</span>
+                            <div class="bg-[#141416] text-[#39FF14] px-4 py-2 max-w-[85%] border-l-2 border-[#39FF14] font-bold text-xs">
+                                Analizando inventario en tiempo real... 📁
+                            </div>
+                            <div class="bg-[#141416] text-gray-300 px-4 py-2.5 max-w-[85%] border-l-2 border-[#39FF14] text-xs sm:text-sm">
+                                Sí, el Apt 402 está disponible por $450.000.000 COP. Aceptamos crédito preaprobado de Bancolombia y Davivienda. ¿Te agendo una videollamada mañana a las 4:00 PM con el asesor asignado?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 2. EL MANIFIESTO ANTI-IA GENÉRICA (Bloque de Confianza)  -->
+    <!-- ======================================================== -->
+    <section class="py-24 px-6 lg:px-24 max-w-7xl mx-auto z-10 relative">
+        <div class="text-center lg:text-left mb-16 space-y-4">
+            <span class="font-mono text-xs uppercase tracking-widest text-[#39FF14]">// Filosofía de desarrollo</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white">Por qué <span class="brand-name-placeholder text-[#39FF14]"></span> no es una plantilla genérica</h2>
+        </div>
+
+        <!-- Rejilla Neo-brutalista de Características -->
+        <div class="grid grid-cols-1 md:grid-cols-3 border border-[#1E1E24] bg-[#0C0C0E]">
+
+            <!-- Tarjeta 1 -->
+            <div class="p-8 border-b md:border-b-0 md:border-r border-[#1E1E24] hover:bg-[#121214] transition-colors duration-200">
+                <div class="font-mono text-[#39FF14] text-lg font-bold mb-4">[01]</div>
+                <h3 class="text-xl font-bold text-white mb-3">Cero Alucinaciones</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Nuestros agentes no inventan datos ni inventan precios para salir del paso. Configuro arquitecturas RAG ancladas estrictamente a los documentos, inventarios en COP/USD y políticas oficiales de tu empresa.
+                </p>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="p-8 border-b md:border-b-0 md:border-r border-[#1E1E24] hover:bg-[#121214] transition-colors duration-200">
+                <div class="font-mono text-[#39FF14] text-lg font-bold mb-4">[02]</div>
+                <h3 class="text-xl font-bold text-white mb-3">Integración Nativa via API</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Integración fluida con software empresarial en Colombia: Siigo, HubSpot, Zoho, Google Sheets, bases de datos SQL, Shopify, WooCommerce o pasarelas como Wompi y Bold.
+                </p>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="p-8 hover:bg-[#121214] transition-colors duration-200">
+                <div class="font-mono text-[#39FF14] text-lg font-bold mb-4">[03]</div>
+                <h3 class="text-xl font-bold text-white mb-3">Control Total de Conversión</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Diseño flujos conversacionales enfocados en el cierre. El bot identifica clientes calificados, colecta variables críticas de venta y transfiere la oportunidad lista para cotizar a tu equipo comercial.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 3. EL SIMULADOR INTERACTIVO (Zona de Conversión)         -->
+    <!-- ======================================================== -->
+    <section class="py-24 px-6 lg:px-24 max-w-7xl mx-auto z-10 relative border-t border-[#1E1E24]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+            <!-- Texto Descriptivo -->
+            <div class="lg:col-span-5 space-y-6">
+                <span class="font-mono text-xs uppercase tracking-widest text-[#39FF14]">// Demostración Interactiva</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white leading-tight">
+                    Elige tu industria.<br>Mira la lógica en acción.
+                </h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Un chat automatizado genérico responde texto plano. Con <span class="brand-name-placeholder text-white font-bold"></span> tu sistema consulta inventarios en Colombia, valida agendas y toma decisiones lógicas según la necesidad del usuario.
+                </p>
+                <div class="hidden lg:block border-l-2 border-[#39FF14] pl-4 py-2 text-xs font-mono text-gray-500">
+                    Haga clic en las pestañas de la derecha para alternar entre diferentes entornos de bases de datos simuladas.
+                </div>
+            </div>
+
+            <!-- Interfaz del Simulador -->
+            <div class="lg:col-span-7 bg-[#121214] border border-[#1E1E24] shadow-[8px_8px_0px_0px_#0C0C0E]">
+                <!-- Selectores de Industria (Tabs) -->
+                <div class="grid grid-cols-3 border-b border-[#1E1E24] text-center font-mono text-xs">
+                    <button id="tab-inmo" onclick="cambiarSimulador('inmo')" class="py-4 border-r border-[#1E1E24] bg-[#1C1C1F] text-[#39FF14] font-bold uppercase tracking-wider transition-all border-b-2 border-b-[#39FF14]">
+                        [ Inmobiliaria ]
+                    </button>
+                    <button id="tab-clinica" onclick="cambiarSimulador('clinica')" class="py-4 border-r border-[#1E1E24] text-gray-400 hover:bg-[#141416] hover:text-white uppercase tracking-wider transition-all">
+                        [ Clínica ]
+                    </button>
+                    <button id="tab-ecom" onclick="cambiarSimulador('ecom')" class="py-4 text-gray-400 hover:bg-[#141416] hover:text-white uppercase tracking-wider transition-all">
+                        [ E-Commerce ]
+                    </button>
+                </div>
+
+                <!-- Caja de Chat Dinámica -->
+                <div class="p-6 font-mono text-xs md:text-sm min-h-[340px] flex flex-col justify-between bg-[#0C0C0E]">
+                    <!-- Contenedor de Mensajes Corrientes -->
+                    <div id="chat-container" class="space-y-4 overflow-y-auto max-h-[300px] pr-2">
+                        <!-- El contenido cambia dinámicamente mediante JS -->
+                    </div>
+
+                    <!-- Botón de Simulación de Cierre -->
+                    <div class="pt-4 mt-4 border-t border-[#1E1E24] flex flex-col sm:flex-row justify-between items-center text-[11px] gap-2">
+                        <span class="text-gray-500">// Simulación de API activa en Colombia</span>
+                        <button onclick="irAFormulario()" class="text-[#39FF14] hover:underline font-bold tracking-wider">
+                            Quiero <span class="brand-name-placeholder"></span> para mi negocio →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 4. EL FORMULARIO DE CALIFICACIÓN (Filtro Inteligente)    -->
+    <!-- ======================================================== -->
+    <section id="seccion-formulario" class="py-24 px-6 lg:px-24 bg-[#0C0C0E] border-t border-[#1E1E24] z-10 relative">
+        <div class="max-w-3xl mx-auto space-y-12">
+
+            <div class="text-center space-y-4">
+                <span class="font-mono text-xs uppercase tracking-widest text-[#39FF14]">// Control de Acceso / Brief</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white">¿Tienes un flujo crítico de chats? Hablemos.</h2>
+                <p class="text-gray-400 text-sm max-w-xl mx-auto">
+                    Completa los datos técnicos básicos de tu empresa. Al enviar el formulario, el sistema estructurará tu requerimiento y te redirigirá directamente a atención prioritaria por WhatsApp.
+                </p>
+            </div>
+
+            <!-- Formulario Neo-brutalista -->
+            <form id="formulario-calificacion" onsubmit="procesarFormulario(event)" class="space-y-6 font-mono text-sm">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Campo 1 -->
+                    <div class="flex flex-col space-y-2">
+                        <label class="text-gray-400 text-xs uppercase tracking-wider" for="web_negocio">
+                            1. URL Web o Perfil Comercial:
+                        </label>
+                        <input type="text" id="web_negocio" required placeholder="ej: instagram.com/minegocio.co o miempresa.com.co" class="bg-[#121214] border border-[#1E1E24] text-white px-4 py-3 focus:outline-none focus:border-[#39FF14] transition-colors placeholder:text-gray-600">
+                    </div>
+                    <!-- Campo 2 -->
+                    <div class="flex flex-col space-y-2">
+                        <label class="text-gray-400 text-xs uppercase tracking-wider" for="canal_saturado">
+                            2. Canal con Mayor Tráfico:
+                        </label>
+                        <select id="canal_saturado" class="bg-[#121214] border border-[#1E1E24] text-gray-300 px-4 py-3 focus:outline-none focus:border-[#39FF14] transition-colors">
+                            <option value="WhatsApp Business Colombia">WhatsApp Business</option>
+                            <option value="Instagram DMs">Instagram DMs</option>
+                            <option value="Omnicanal (Ambos)">Omnicanal (Ambos)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Campo 3 -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-gray-400 text-xs uppercase tracking-wider" for="sistema_interno">
+                        3. Software / CRM o Base de datos a integrar (Si aplica):
+                    </label>
+                    <input type="text" id="sistema_interno" placeholder="ej: Siigo, HubSpot, Google Sheets, Shopify, Zoho, o ninguno" class="bg-[#121214] border border-[#1E1E24] text-white px-4 py-3 focus:outline-none focus:border-[#39FF14] transition-colors placeholder:text-gray-600">
+                </div>
+
+                <!-- Campo 4 -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-gray-400 text-xs uppercase tracking-wider">
+                        4. Estado del Presupuesto de Inversión:
+                    </label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+                        <label class="flex items-center space-x-3 bg-[#121214] border border-[#1E1E24] px-4 py-3 cursor-pointer select-none hover:border-[#39FF14] transition-colors">
+                            <input type="radio" name="presupuesto" value="Listo para invertir (COP/USD)" checked class="accent-[#39FF14]">
+                            <span class="text-white text-xs">Tengo presupuesto y busco iniciar este mes.</span>
+                        </label>
+                        <label class="flex items-center space-x-3 bg-[#121214] border border-[#1E1E24] px-4 py-3 cursor-pointer select-none hover:border-[#39FF14] transition-colors">
+                            <input type="radio" name="presupuesto" value="Cotizando / Explorando" class="accent-[#39FF14]">
+                            <span class="text-gray-400 text-xs">Estoy estructurando la idea y cotizando opciones.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Botón de Envío -->
+                <div class="pt-4">
+                    <button type="submit" class="w-full font-mono font-bold bg-[#39FF14] text-black border border-black hover:bg-black hover:text-[#39FF14] hover:border-[#39FF14] px-8 py-4 transition-all duration-300 shadow-[4px_4px_0px_0px_#1E1E24] hover:shadow-none transform hover:translate-x-1 hover:translate-y-1">
+                        [ GENERAR SOLICITUD Y ENTRAR A WHATSAPP ⚡ ]
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 5. FOOTER TÉCNICO MINIMALISTA                            -->
+    <!-- ======================================================== -->
+    <footer class="bg-[#050505] border-t border-[#1E1E24] py-8 px-6 lg:px-24 font-mono text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div>
+                <span class="brand-name-placeholder text-[#39FF14]"></span> © 2026
+            </div>
+            <div class="flex space-x-6">
+                <span class="text-gray-600">Powered by <a href="https://icompsoluciones-dev.github.io" target="_blank" class="text-[#39FF14]">iComp Soluciones</a> </span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
