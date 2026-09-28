@@ -1,7 +1,7 @@
 const CONFIG = {
     telefonoWhatsApp: "573118002621",
-    nombreMarca: "iCompBot",
-    mensajePredeterminado: "¡Hola! Vi la landing de iCompBot y quiero agendar una demostración en vivo para mi negocio en Colombia."
+    nombreMarca: "AiComp-Bot",
+    mensajePredeterminado: "¡Hola! Vi la landing de AiComp-Bot y quiero agendar una demostración en vivo para mi negocio en Colombia."
 };
 
 const CLASE_TAB_ACTIVA = "py-4 border-r border-[#1E1E24] bg-[#1C1C1F] text-[#39FF14] font-bold uppercase tracking-wider transition-all border-b-2 border-b-[#39FF14]";
@@ -16,7 +16,7 @@ const baseDeSimulaciones = {
             </div>
         </div>
         <div class="flex flex-col items-start space-y-1">
-            <span class="text-[10px] text-[#39FF14]">ICOMPBOT // DB_QUERY_COL</span>
+            <span class="text-[10px] text-[#39FF14]">AICOMP-BOT // DB_QUERY_COL</span>
             <div class="bg-[#141416] text-[#39FF14] px-4 py-2 max-w-[85%] border-l-2 border-[#39FF14] font-bold">
                 Ejecutando SQL Query en inventario real-time... ⚡
             </div>
@@ -33,7 +33,7 @@ const baseDeSimulaciones = {
             </div>
         </div>
         <div class="flex flex-col items-start space-y-1">
-            <span class="text-[10px] text-[#39FF14]">ICOMPBOT // CALENDAR_API</span>
+            <span class="text-[10px] text-[#39FF14]">AICOMP-BOT // CALENDAR_API</span>
             <div class="bg-[#141416] text-[#39FF14] px-4 py-2 max-w-[85%] border-l-2 border-[#39FF14] font-bold">
                 Consultando agenda médica / EHR... 📅
             </div>
@@ -50,7 +50,7 @@ const baseDeSimulaciones = {
             </div>
         </div>
         <div class="flex flex-col items-start space-y-1">
-            <span class="text-[10px] text-[#39FF14]">ICOMPBOT // SHOPIFY_WEBHOOK</span>
+            <span class="text-[10px] text-[#39FF14]">AICOMP-BOT // SHOPIFY_WEBHOOK</span>
             <div class="bg-[#141416] text-[#39FF14] px-4 py-2 max-w-[85%] border-l-2 border-[#39FF14] font-bold">
                 Consultando Webhook Shopify & Logística Colombia... 📦
             </div>
