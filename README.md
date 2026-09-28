@@ -1,12 +1,58 @@
-# iCompBot
+# AiComp-Bot
 
 Sistema de **automatización conversacional a medida** para negocios en Colombia. No es un chatbot de respuestas genéricas: consulta inventarios, agendas, CRMs y documentos oficiales, y responde con datos anclados a tu operación.
 
 Desarrollado por [iComp Soluciones](https://icompsoluciones-dev.github.io).
 
+## Canal, n8n y Python
+
+El demo no elige entre n8n **o** Python. Se parte así:
+
+- **Canal:** WhatsApp (el de la landing). Instagram después, reutilizando el mismo `/chat`.
+- **Cerebro:** Python en `bot/` (SQLite + OpenAI con tools + prompt estricto).
+- **n8n:** opcional, solo para recibir/enviar WhatsApp si aún no cableas Graph API.
+
+Detalle e import del flujo: [`n8n/README.md`](n8n/README.md).
+
+### Cómo correr el demo (Python)
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env   # pega OPENAI_API_KEY
+```
+
+Terminal (sin WhatsApp):
+
+```bash
+python -m bot
+```
+
+API (para n8n, widget o webhook):
+
+```bash
+uvicorn bot.main:app --reload --port 8000
+```
+
+```bash
+curl -s http://127.0.0.1:8000/chat \
+  -H 'Content-Type: application/json' \
+  -d '{"message":"¿Qué tienen en El Poblado por menos de 500 millones?","session_id":"demo"}'
+```
+
+Guión de 4 turnos:
+
+1. ¿Qué tienen en El Poblado por menos de 500 millones?
+2. ¿El 301 acepta crédito Bancolombia?
+3. Agéndame el 402 mañana 16:00, soy Juan Pérez. (fecha en el seed: `2026-09-03` 16:00)
+4. ¿El vecino del 402 es ruidoso? → debe negarse a inventar.
+
+WhatsApp directo en Python: configura `WHATSAPP_TOKEN` y `WHATSAPP_PHONE_NUMBER_ID`, expón `/webhook/whatsapp` (ngrok) y úsalo como callback de Meta. Si prefieres n8n delante, importa `n8n/whatsapp-to-python.json` y apunta al mismo `/chat`.
+
 ## Qué hace
 
-iCompBot atiende al cliente en el canal donde ya te escriben (WhatsApp, Instagram o ambos), entiende la pregunta y ejecuta lógica de negocio:
+AiComp-Bot atiende al cliente en el canal donde ya te escriben (WhatsApp, Instagram o ambos), entiende la pregunta y ejecuta lógica de negocio:
 
 - Consulta inventario, precios y políticas **sin inventar datos**.
 - Califica el lead (presupuesto, zona, producto, urgencia).
@@ -114,6 +160,6 @@ Stack típico de un despliegue (varía por cliente):
 
 ## Contacto
 
-- Marca: **iCompBot**
+- Marca: **AiComp-Bot**
 - Comercial / demo: WhatsApp (brief desde la landing o mensaje directo)
 - Powered by **iComp Soluciones**
